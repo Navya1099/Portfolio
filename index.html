@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lange="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewpoint" content="width-device-width, initial-scale-1.0">
+        <title>Personal Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/9fe3815e71.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="header">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <h1>Hello, I'm <span>Navya Ramachandra</span></h1><!--<br>I love to build scalable and optimised backend systems</span> -->    
+                <h2>Passionate engineer specialized in building robust backend solutions.</h2>
+            </div>
+        </div>
+        </div>
+        <!-------about-------------->
+        <div id="about">
+        <div class="container">
+        <div class="row">
+        <div class="about-col-1">
+            <img src="images/Navya.jpg">
+        </div>
+        <div class="about-col-2"> 
+           <h1 class="sub-title">About Me</h1>
+           <p>Software Engineer with an experience of 2+ years in delivering innovative technical solutions for business needs. Skilled in automation, testing and troubleshooting, with a keen ability to maintain system integrity and reliability. Passionate about learning new technologies and skills to meet the evolving challenges of the industry
+        </p> 
+        <div class="tab-titles">
+            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+            <p class="tab-links" onclick="opentab('education')">Education</p>
+        </div> 
+        <div class="tab-contents active-tab" id="skills">
+            <ul>
+                <li><span>Programming Languages</span><br>Python, C, C++, Bash Shell Scripting, SQL</li>
+                <li><span>Operating Systems</span><br>Unix, Linux (Ubuntu), Windows</li>
+                <li><span>Database</span><br>Oracle, MySQL</li>
+                <li><span>Tools/Technologies</span><br>GitHub, SQL Developer, Visual Studio Code(VSCode), Jira, Toad, PuTTY, PyCharm, SonarQube, Jenkins</li>
+            </ul>
+        </div>    
+        <div class="tab-contents" id="experience">
+            <ul>
+                <li><span>Sept 2021 - Jan 2024</span><br>Accenture<br>Application Development Analyst</li>
+            </ul>
+        </div> 
+        <div class="tab-contents" id="education">
+            <ul>
+                <li><span>2017 - 2021</span><br>Visvesvaraya Technological University<br>Bachelor's in Electronics & Communication Engineering</li>
+            </ul>
+        </div>        
+        </div>
+        </div>
+    </div>
+    <!----Projects----->
+    <div id="projects">
+        <div class="container">
+            <h1 class="sub-title">Projects</h1>
+            <div class="projects-list">
+            <div>
+                <h2 style="color:#b54769">Portfolio Website</h2>
+                <p>• Developed an dynamic portfolio website using HTML, CSS, and JavaScript. This site showcases my skills, professional experience, education and projects with a clean and responsive design.</pr>   
+            </div>
+            <div>
+                <h2 style="color:#b54769">Deployment Pipeline Automation</h2>
+                <p>• Designed and implemented a CI/CD pipeline using Jenkins, SonarQube and Code Cloud(Version Control) to automate the software development lifecycle.</p>
+            </div>
+            <div>
+                <h2 style="color:#b54769">Financial Workflow Automation</h2>
+                <p>• Designed and optimized workflows for generating comprehensive financial reports using Fiserv workflow management software, thereby streamlining reconciliation application processes.</p>
+            </div>
+            <div>
+                <h2 style="color:#b54769">Coronary Artery Disease Prediction</h2>
+                <p>• Developed an AI model for detecting Coronary Artery Disease, achieving 88.52% accuracy rate by using machine learning algorithms and Python providing valuable insights for proactive healthcare interventions</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----contact------>
+<div id="contact">
+    <div class="container">
+    <div class="row">
+    <div class="contact-left">
+        <h1 class="sub-title">Contact Me</h1><br>
+        <p><i class="fa-solid fa-envelope"></i>navya101199rs@gmail.com</p><br>
+        <p><i class="fa-solid fa-phone"></i>+44 7438605601</p><br>
+        <p><i class="fa-brands fa-linkedin"></i>linkedin.com/in/r-navya</p><br>
+        <a type href="Images/Navya-Ramachandra Resume.pdf" download class="btn btn2">Download CV</a>
+    </div>
+    <div class="contact-right">
+        <form name="submit-to-google-sheet">
+            <input type="text" name="Name" placeholder="Your Name" required >
+            <input type="email" name="Email" placeholder="Your Email" required>
+            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn btn2">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");     
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");     
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzrMM-lr61HyZ2qoHMzBqkHw3NWU_likMDsh8FrmEeQXpqxjGfzibqSoGnwj-8Mg6Z3/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</body>
+</html>
+
